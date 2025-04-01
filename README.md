@@ -27,7 +27,7 @@ What is the worst-case big $\Theta$ complexity of your implementation? Add your
 answer, including your reasoning, to this markdown file.
 
 ### Analysis
-In the worse case we need to consider every vertex which adds |V| time. Then for every vertex we need to consider all the edges. However, since we can eliminate the edges connected to a vertex we already visited, and edges can only start at one vertex at a time, we only need to consider |E| total in the worst case. As opposed to |V||E|. So the worse case complexity is $\Theta(|V|+|E|)$:w
+In the worse case we need to consider every vertex which adds |V| time. Then for every vertex we need to consider all the edges. However, since we can eliminate the edges connected to a vertex we already visited, and edges can only start at one vertex at a time, we only need to consider |E| total in the worst case. As opposed to |V||E|. So the worse case complexity is $\Theta(|V|+|E|)$
 
 
 ## Bonus
