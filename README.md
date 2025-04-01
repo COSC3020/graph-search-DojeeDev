@@ -26,6 +26,16 @@ the function and run automatically when you commit through a GitHub action.
 What is the worst-case big $\Theta$ complexity of your implementation? Add your
 answer, including your reasoning, to this markdown file.
 
+### Analysis
+In the worse case we need to consider every vertex which adds |V| time. Then for every vertex we need to consider all the edges. However, since we can eliminate the edges connected to a vertex we already visited, and edges can only start at one vertex at a time, we only need to consider |E| total in the worst case. As opposed to |V||E|. So the worse case complexity is $\Theta(|V|+|E|)$:w
+
+
 ## Bonus
 
 Implement and analyze breadth-first search.
+
+
+
+
+
+I certify that I have listed all sources used to complete this exercise, including the use of any Large Language Models. All of the work is my own, except where stated otherwise. I am aware that plagiarism carries severe penalties and that if plagiarism is suspected, charges may be filed against me without prior notice.
