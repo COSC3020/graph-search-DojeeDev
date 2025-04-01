@@ -1,38 +1,17 @@
+// sources used:
+// - queried chatgpt how to check if item is in a set in js.
+// - used the mdn web docs
+
 //uses adjacency list
-function depthFirstSearch(g, s, t) { // g = graph, s = startNode, t = targetNode
-  process.stdout.write("graph=");
-  console.log(g);
-  console.log("startNode=" + s);
+function depthFirstSearch(g, s, t, v = new Set()) { // g = graph, s = startNode, t = targetNode, v = visited
+  if (s == t) { return [s]; }
+  if (v.has(s)) { return false; } 
 
-  if (s == t) { return ; }
-  if (g[s].length == 0) { return false; }
+  v.add(s);
 
-  var gRest = JSON.parse(JSON.stringify(g));
-  gRest[s] = []
-  process.stdout.write("gRest=");
-  console.log(gRest);
-  var path = depthFirstSearch(gRest, g[s][0], t)
-  process.stdout.write("path=");
-  console.log(path);
-
-  if (path == false) {
-    return depthFirstSearch(g, g[s].splice[0,0]);
+  for (var u of g[s]) {
+    var path = depthFirstSearch(g, u, t, v);
+    if (path) { return [s, ...path]; }
   }
-  else {
-    return path.unshift(s) ; //needs something different 
-  }
+    return false
 }
-
-
-var testGraph = [
-  [1,2,5],
-  [4],
-  [3,5],
-  [4],
-  [],
-  [6],
-  []
-];
-console.log(testGraph);
-
-console.log(depthFirstSearch(testGraph, 0, 6)); //expected output is: [0,5,6]
