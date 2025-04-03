@@ -4,14 +4,14 @@
 
 //uses adjacency list
 function depthFirstSearch(g, s, t, v = new Set()) { // g = graph, s = startNode, t = targetNode, v = visited
-  if (s == t) { return [s]; }
-  if (v.has(s)) { return false; } 
+  if (s == t) { return [t]; }
+  if (v.has(s)) { return []; } 
 
   v.add(s);
 
-  for (var u of g[s]) {
-    var path = depthFirstSearch(g, u, t, v);
-    if (path) { return [s, ...path]; }
+  for (var u = 0; u < g[s].length; u++) {
+    const path = depthFirstSearch(g, g[s][u], t, v);
+    if (path.length > 0) { return [s, ...path]; }
   }
-    return false
+    return [];
 }
